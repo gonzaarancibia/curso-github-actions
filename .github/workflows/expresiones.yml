@@ -1,9 +1,6 @@
 name: Aprendiendo sobre Expresiones
 run-name: ¡Estoy aprendiendo usar expresiones!
 on:
-  push:
-    branches: ["aprendiendo-github-actions", "main"]
-    paths: ["**/*"]
   workflow_dispatch:
     inputs:
       edad:
