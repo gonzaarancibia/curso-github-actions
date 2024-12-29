@@ -17,7 +17,7 @@ on:
       mensaje:
         description: "Mensaje personalizado para enviar"
         required: true
-        default: "¡Hola!"
+        default: ¡Hola!
   issue_comment:
     types:
       - created
