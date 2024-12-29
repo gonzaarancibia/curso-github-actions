@@ -12,6 +12,9 @@ on:
         required: true
         default: "Juan"
         type: string
+  push:
+    branches:
+      - aprendiendo-github-actions
 env:
   PROYECTO: "Curso de GitHub Actions"
 jobs:
