@@ -1,6 +1,9 @@
 name: Aprendiendo sobre Expresiones
 run-name: ¡Estoy aprendiendo usar expresiones!
 on:
+  push:
+    branches: ["aprendiendo-github-actions", "main"]
+    paths: ["**/*"]
   workflow_dispatch:
     inputs:
       edad:
@@ -14,14 +17,16 @@ on:
         type: string
 jobs:
   mayor:
-    if: ${{ inputs.edad >= 18 }}
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     steps:
       - name: Correr script
+        if: ${{ inputs.edad >= 18 }}
         run: echo ${{ inputs.nombre }} es mayor de edad
   menor:
-    if: ${{ inputs.edad < 18 }}
+    if: ${{ github.event_name == 'workflow_dispatch' }}
     runs-on: ubuntu-latest
     steps:
       - name: Correr script
+        if: ${{ inputs.edad < 18 }}
         run: echo ${{ inputs.nombre }} es menor de edad
