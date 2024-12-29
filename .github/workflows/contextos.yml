@@ -20,7 +20,7 @@ jobs:
     steps:
       - name: Configurar variable global
         run: echo "COMPANY=GitHub" >> $GITHUB_ENV
-        
+
       - name: Mostrar contexto de github
         run: |
           echo "Este workflow fue activado por: ${{ github.actor }}"
@@ -29,7 +29,7 @@ jobs:
           echo "SHA del commit: ${{ github.sha }}"
         env:
           EVENT_TYPE: ${{ github.event_name }}
-      
+
       - name: Comparar input con github.actor
         run: |
           if [ "${{ inputs.username }}" == "${{ github.actor }}" ]; then
@@ -40,12 +40,12 @@ jobs:
 
       - name: Usar el contexto env
         run: echo "El proyecto actual es $PROYECTO"
-      
+
       - name: Usar contexto runner
         run: |
           echo "Sistema operativo del runner: ${{ runner.os }}"
           echo "Espacio disponible: ${{ runner.temp }}"
-      
+
       - name: Usar secrets
         env:
           MY_SECRET: ${{ secrets.MY_SECRET }}
@@ -60,9 +60,10 @@ jobs:
         run: |
           echo "La compañía es: ${{ vars.COMPANY }}"
           echo "La variable PROYECTO es: $PROYECTO"
-      
+
       - name: Contexto steps
         id: step1
         run: echo "Esto es un paso previo."
       - name: Contexto steps (continuación)
-        run: echo "El resultado del paso previo es: ${{ steps.step1.outcome }}"
+        run: |
+          echo "El resultado del paso previo es: ${{ steps.step1.outcome }}"
