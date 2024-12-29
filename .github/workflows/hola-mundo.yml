@@ -1,0 +1,17 @@
+name: Aprendiendo GitHub Actions
+run-name: ¡Estoy aprendiendo GitHub Actions!
+on: [push]
+jobs:
+  hola-mundo:
+    runs-on: ubuntu-latest
+    steps:
+      - name: clone the repository in the runner
+        uses: actions/checkout@v3
+      - name: set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "latest"
+      - name: Definir variable
+        run: echo "USERNAME=${{ github.actor }}" >> $GITHUB_ENV
+      - name: Correr script
+        run: node hola_mundo.js
