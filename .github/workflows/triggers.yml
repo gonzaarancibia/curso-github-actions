@@ -11,19 +11,18 @@ on:
       - "**.js"
   issues:
     types:
-      - opened
-      - edited
-  issue_comment:
-    types:
-      - created
-  schedule:
-    - cron: "*/10 * * * *" # Cada 10 minutos
+      - labeled
   workflow_dispatch: # Este es el trigger que permite ejecutar el workflow manualmente
     inputs:
       mensaje:
         description: "Mensaje personalizado para enviar"
         required: true
         default: "¡Hola!"
+  issue_comment:
+    types:
+      - created
+  schedule:
+    - cron: "*/10 * * * *" # Cada 10 minutos
 
 jobs:
   triggers-job:
