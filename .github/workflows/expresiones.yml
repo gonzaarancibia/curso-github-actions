@@ -17,16 +17,14 @@ on:
         type: string
 jobs:
   mayor:
-    if: ${{ github.event_name == 'workflow_dispatch' }}
+    if: ${{ inputs.edad >= 18 }}
     runs-on: ubuntu-latest
     steps:
       - name: Correr script
-        if: ${{ inputs.edad >= 18 }}
         run: echo ${{ inputs.nombre }} es mayor de edad
   menor:
-    if: ${{ github.event_name == 'workflow_dispatch' }}
+    if: ${{ inputs.edad < 18 }}
     runs-on: ubuntu-latest
     steps:
       - name: Correr script
-        if: ${{ inputs.edad < 18 }}
         run: echo ${{ inputs.nombre }} es menor de edad
