@@ -35,7 +35,7 @@ jobs:
 
       - name: Comparar input con github.actor
         run: |
-          if [ "${{ inputs.username }}" == "${{ github.actor }}" ]; then
+          if [ "${{ inputs.github-username }}" == "${{ github.actor }}" ]; then
             echo "¡El usuario ingresado coincide con el actor!"
           else
             echo "El usuario ingresado no coincide con el actor."
